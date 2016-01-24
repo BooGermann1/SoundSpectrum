@@ -1,0 +1,17 @@
+INPUT(
+./debug/main.o
+./debug/mainwindow.o
+./debug/spectrumwidget.o
+./debug/audiostream.o
+./debug/fftstream.o
+./debug/qcomplexnumber.o
+./debug/qfouriercalculator.o
+./debug/qfourierfixedcalculator.o
+./debug/qfouriertransformer.o
+./debug/qfouriervariablecalculator.o
+./debug/qwindowfunction.o
+./debug/moc_mainwindow.o
+./debug/moc_spectrumwidget.o
+./debug/moc_audiostream.o
+./debug/moc_fftstream.o
+);
