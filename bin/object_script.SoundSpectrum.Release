@@ -10,8 +10,10 @@ INPUT(
 ./release/qfouriertransformer.o
 ./release/qfouriervariablecalculator.o
 ./release/qwindowfunction.o
+./release/settings.o
 ./release/moc_mainwindow.o
 ./release/moc_spectrumwidget.o
 ./release/moc_audiostream.o
 ./release/moc_fftstream.o
+./release/moc_settings.o
 );

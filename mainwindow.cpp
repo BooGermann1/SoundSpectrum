@@ -3,6 +3,7 @@
 #include "spectrumwidget.h"
 #include "audiostream.h"
 #include "fftstream.h"
+#include "settings.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -14,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setCentralWidget(Spectrum);
     AudioStream* Stream = new AudioStream();
     FFTStream* FFT = new FFTStream();
+    Settings mod;
     connect(Stream, SIGNAL(Complete(QBuffer*)), FFT, SLOT(start_fft(QBuffer*)));
     connect(FFT, SIGNAL(stop_fft(QVector<double>*)), Spectrum, SLOT(Redraw(QVector<double>*)));
     connect(FFT, SIGNAL(stop_fft()), Stream, SLOT(StartRecord()));

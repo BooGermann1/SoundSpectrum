@@ -9,12 +9,12 @@ QWT_DIR =  c:\qwt-6.1.2\
 
 QT       += core gui multimedia
 
-INCLUDEPATH += $${PWD}\qwt\src\
+INCLUDEPATH += $${PWD}\qwt\inc \
                $${PWD}\qfft\inc
 
 DEPENDPATH += $${QWT_DIR}\lib
 
-LIBS += $${PWD}\qwtd.dll
+LIBS += $${PWD}\qwt.dll
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -33,7 +33,8 @@ SOURCES += main.cpp\
     qfft/sources/qfourierfixedcalculator.cpp \
     qfft/sources/qfouriertransformer.cpp \
     qfft/sources/qfouriervariablecalculator.cpp \
-    qfft/sources/qwindowfunction.cpp
+    qfft/sources/qwindowfunction.cpp \
+    settings.cpp
 
 HEADERS  += mainwindow.h \
     spectrumwidget.h \
@@ -45,7 +46,8 @@ HEADERS  += mainwindow.h \
     qfft/headers/qfourierfixedcalculator.h \
     qfft/headers/qfouriertransformer.h \
     qfft/headers/qfouriervariablecalculator.h \
-    qfft/headers/qwindowfunction.h
+    qfft/headers/qwindowfunction.h \
+    settings.h
 
 FORMS    += mainwindow.ui
 

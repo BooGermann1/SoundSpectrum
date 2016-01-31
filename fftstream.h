@@ -22,7 +22,8 @@ public slots:
     start_fft(QBuffer*);
 
 private:
-    QVector<double> OutBuf;
+    QVector <double> OutBuf;
+    QVector <double> barvec;
     QFourierTransformer transformer;
     float in[SIZE], out[SIZE];
 };

@@ -24,6 +24,22 @@ FFTStream::start_fft(QBuffer* Buf){
     for(int i = 0; i<SIZE / 2; i++){
         OutBuf<<20*log10(abs(out[i])+1);
     }
-    stop_fft(&OutBuf);
-    stop_fft();
+    if (BARS){
+        barvec.clear();
+        double mean;
+        for (int i = 0; i<NUM_BARS; i++){
+            mean = 0;
+            for (int c = 0; c<SIZE/2/NUM_BARS; c++){
+                mean += OutBuf[c + i*SIZE/2/NUM_BARS];
+            }
+            barvec.append(mean/(SIZE/2/NUM_BARS));
+        }
+        stop_fft(&barvec);
+        stop_fft();
+
+    }
+    else{
+        stop_fft(&OutBuf);
+        stop_fft();
+    }
 }

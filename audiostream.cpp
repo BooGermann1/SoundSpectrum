@@ -6,7 +6,7 @@ AudioStream::AudioStream()
     AudioBuffer = new QBuffer;
     AudioBuffer->open(QIODevice::WriteOnly);
     Format = new QAudioFormat;
-    Format->setSampleRate(48000);
+    Format->setSampleRate(SAMPLE_RATE);
     Format->setChannelCount(1);
     Format->setSampleSize(8);
     Format->setCodec("audio/pcm");
@@ -29,7 +29,7 @@ AudioStream::AudioStream()
 
 AudioStream::StartRecord()
 {
-    QTimer::singleShot(50, this, SLOT(StopRecord()));
+    QTimer::singleShot(SAMPLE_TIME_MS, this, SLOT(StopRecord()));
     AudioBuffer->open(QIODevice::WriteOnly);
     AudioBuffer->seek(0);
     Audio->start(AudioBuffer);

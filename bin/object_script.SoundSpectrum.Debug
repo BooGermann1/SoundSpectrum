@@ -10,8 +10,10 @@ INPUT(
 ./debug/qfouriertransformer.o
 ./debug/qfouriervariablecalculator.o
 ./debug/qwindowfunction.o
+./debug/settings.o
 ./debug/moc_mainwindow.o
 ./debug/moc_spectrumwidget.o
 ./debug/moc_audiostream.o
 ./debug/moc_fftstream.o
+./debug/moc_settings.o
 );
