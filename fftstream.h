@@ -18,14 +18,20 @@ public:
 signals:
     stop_fft(QVector<double>*);
     stop_fft();
+    newLocalMax(float);
+    newGlobalMax(float);
+    newMaxGraph(QVector<double>*);
 public slots:
     start_fft(QBuffer*);
+    reset_max();
 
 private:
     QVector <double> OutBuf;
     QVector <double> barvec;
     QFourierTransformer transformer;
     float in[SIZE], out[SIZE];
+    float GlobalMaxVolume;
+    float LocalMaxVolume;
 };
 
 #endif // FFTSTREAM_H

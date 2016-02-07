@@ -14,7 +14,7 @@ INCLUDEPATH += $${PWD}\qwt\inc \
 
 DEPENDPATH += $${QWT_DIR}\lib
 
-LIBS += $${PWD}\qwt.dll
+LIBS += $${PWD}\qwtd.dll
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -34,7 +34,8 @@ SOURCES += main.cpp\
     qfft/sources/qfouriertransformer.cpp \
     qfft/sources/qfouriervariablecalculator.cpp \
     qfft/sources/qwindowfunction.cpp \
-    settings.cpp
+    settings.cpp \
+    boxwidget.cpp
 
 HEADERS  += mainwindow.h \
     spectrumwidget.h \
@@ -47,7 +48,8 @@ HEADERS  += mainwindow.h \
     qfft/headers/qfouriertransformer.h \
     qfft/headers/qfouriervariablecalculator.h \
     qfft/headers/qwindowfunction.h \
-    settings.h
+    settings.h \
+    boxwidget.h
 
 FORMS    += mainwindow.ui
 

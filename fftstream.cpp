@@ -27,19 +27,34 @@ FFTStream::start_fft(QBuffer* Buf){
     if (BARS){
         barvec.clear();
         double mean;
-        for (int i = 0; i<NUM_BARS; i++){
+        for (int i = 0; i<NUM_BARS+1; i++){
             mean = 0;
-            for (int c = 0; c<SIZE/2/NUM_BARS; c++){
-                mean += OutBuf[c + i*SIZE/2/NUM_BARS];
+            for (int c = 0; c<CUT_SIZE/NUM_BARS; c++){
+                mean += OutBuf[c + i*CUT_SIZE/NUM_BARS + index_lc];
             }
-            barvec.append(mean/(SIZE/2/NUM_BARS));
+            barvec.append(mean/(CUT_SIZE/NUM_BARS));
+            if (mean/(CUT_SIZE/NUM_BARS)>LocalMaxVolume){
+                LocalMaxVolume = mean/(CUT_SIZE/NUM_BARS);
+                newLocalMax(LocalMaxVolume);
+            }
         }
-        stop_fft(&barvec);
-        stop_fft();
+        emit stop_fft(&barvec);
+        emit stop_fft();
+
+        if (LocalMaxVolume>GlobalMaxVolume){
+            GlobalMaxVolume = LocalMaxVolume;
+            emit newGlobalMax(GlobalMaxVolume);
+            emit newMaxGraph(&barvec);
+        }
 
     }
     else{
         stop_fft(&OutBuf);
         stop_fft();
     }
+}
+
+FFTStream::reset_max()
+{
+    LocalMaxVolume = 0;
 }
